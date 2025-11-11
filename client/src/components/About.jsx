@@ -18,7 +18,7 @@ const About = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "anticipate" }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="inline-block mb-8"
         >
           <h2 className="text-4xl sm:text-5xl font-extrabold text-stone-100 tracking-tight">
@@ -28,7 +28,7 @@ const About = () => {
             initial={{ scaleX: 0, transformOrigin: "left" }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1, ease: "anticipate", delay: 0.3 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="h-[3px] bg-teal-400 mt-1 rounded-full"
           />
         </motion.div>
@@ -44,7 +44,7 @@ const About = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-stone-200 text-lg leading-relaxed tracking-wide"
             >
               {item}
@@ -57,7 +57,7 @@ const About = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="w-full md:w-1/3 flex items-center justify-center"
         >
           <div className="relative w-60 h-60 md:w-100 md:h-100 rounded-full overflow-hidden flex items-center justify-center bg-gradient-to-b from-gray-950 to-black border border-none shadow-[0_0_35px_#14b8a6]/40 hover:shadow-[0_0_55px_#14b8a6]/70 transition-all duration-500">

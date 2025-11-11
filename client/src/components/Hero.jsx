@@ -9,9 +9,9 @@ const Hero = () => {
     <section id="hero" className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black">
       <div className="relative w-full h-[700px]">
         {/* <Galaxy
-          mouseRepulsion={false}
-          mouseInteraction={false}
-          transparent={false}
+          mouseRepulsion={true}
+          mouseInteraction={true}
+          transparent={true}
           glowIntensity={0.4}
           saturation={0}
           hueShift={140}

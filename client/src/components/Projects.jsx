@@ -9,7 +9,7 @@ const Projects = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity:1, y: 0 }}
           transition={{ duration: 1, ease: "anticipate" }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className='inline-block'
         >
           <h1 className='text-4xl md:text-5xl text-stone-100 font-extrabold'>
@@ -19,7 +19,7 @@ const Projects = () => {
             initial={{ scaleX: 0, transformOrigin: "left" }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1, ease: "anticipate", delay: 0.3 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className='h-[3px] bg-teal-400 mt-1'
           />
         </motion.div>
