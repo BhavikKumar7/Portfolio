@@ -6,16 +6,17 @@ const router = express.Router();
 router.post("/", async (req, res) => {
     const { name, email, phone, message } = req.body;
 
-    if(!name || !email || !message){
+    if(!name || !email || !phone || !message){
         return res.status(400).json({ message: "All required fields must be filled.."});
     }
 
     try {
         const transporter = nodemailer.createTransport({
-            service: "gmail",
+            host: "smtp-relay.brevo.com",
+            port: 587,
             auth: {
-                user: process.env.EMAIL_USER,
-                pass: process.env.EMAIL_PASS,
+                user: process.env.BREVO_USER,
+                pass: process.env.BREVO_PASS,
             },
         });
 
