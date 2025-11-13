@@ -8,7 +8,7 @@ const Hero = () => {
   return (
     <section id="hero" className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black">
       <div className="relative w-full h-[700px]">
-        {/* <Galaxy
+        <Galaxy
           mouseRepulsion={true}
           mouseInteraction={true}
           transparent={true}
@@ -21,7 +21,7 @@ const Hero = () => {
           speed={0.8}
           rotationSpeed={0.02}
           className="absolute inset-0 w-full h-full"
-        /> */}
+        />
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-center items-start px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32 space-y-4 z-10 pointer-events-none">
