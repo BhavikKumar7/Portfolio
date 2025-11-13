@@ -1,48 +1,3 @@
-// import express from "express";
-// import nodemailer from "nodemailer";
-
-// const router = express.Router();
-
-// router.post("/", async (req, res) => {
-//     const { name, email, phone, message } = req.body;
-
-//     if(!name || !email || !phone || !message){
-//         return res.status(400).json({ message: "All required fields must be filled.."});
-//     }
-
-//     try {
-//         const transporter = nodemailer.createTransport({
-//             host: "smtp-relay.brevo.com",
-//             port: 587,
-//             auth: {
-//                 user: process.env.BREVO_USER,
-//                 pass: process.env.BREVO_PASS,
-//             },
-//         });
-
-//         await transporter.sendMail({
-//             from: "Portfolio Contact Form",
-//             to: "bhavikrajputrr2004@gmail.com",
-//             subject: `New Message from ${name}`,
-//             text: `
-//                     You have a new contact form submission:
-
-//                     Name: ${name}
-//                     Email: ${email}
-//                     Phone: ${phone}
-//                     Message: ${message}
-//             `,
-//         });
-
-//         res.status(200).json({ message: "Message Sent successfully.. "})
-//     } catch (err) {
-//         console.error("Error sending email: ", err);
-//         res.status(500).json({ message: "Failed to send message" });
-//     }
-// });
-
-// export default router;
-
 import express from "express";
 import axios from "axios";
 
@@ -56,7 +11,7 @@ router.post("/", async (req, res) => {
   }
 
   try {
-    const brevoRes = await axios.post(
+    await axios.post(
       "https://api.brevo.com/v3/smtp/email",
       {
         sender: { name: "Portfolio Contact Form", email: "bhavikrajputrr2004@gmail.com" },
@@ -72,18 +27,41 @@ router.post("/", async (req, res) => {
       },
       {
         headers: {
-          "accept": "application/json",
+          accept: "application/json",
           "api-key": process.env.BREVO_API_KEY,
           "content-type": "application/json",
         },
       }
     );
 
-    console.log("Email sent successfully:", brevoRes.data);
+    await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: { name: "Bhavik Kumar", email: "bhavikrajputrr2004@gmail.com" },
+        to: [{ email }],
+        subject: "Thank you for reaching out!",
+        textContent: `
+          Hi ${name},
+
+          Thank you for contacting me. I have received your message and will get back to you as soon as possible.
+
+          Regards,
+          Bhavik Kumar
+        `,
+      },
+      {
+        headers: {
+          accept: "application/json",
+          "api-key": process.env.BREVO_API_KEY,
+          "content-type": "application/json",
+        },
+      }
+    );
+
     res.status(200).json({ message: "Message sent successfully." });
   } catch (error) {
     console.error("Error sending email:", error.response?.data || error.message);
-    res.status(500).json({ message: "Failed to send message" });
+    res.status(500).json({ message: "Failed to send message", error });
   }
 });
 
