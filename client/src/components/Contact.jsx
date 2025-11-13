@@ -20,7 +20,6 @@ const Contact = () => {
     };
 
     try {
-      // const res = await fetch("http://localhost:5001/api/contact", {
       const res = await fetch("https://portfolio-t3uw.onrender.com/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
