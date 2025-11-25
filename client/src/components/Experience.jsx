@@ -45,7 +45,7 @@ const Experience = () => {
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1, ease: "anticipate", delay: 0.3 }}
             viewport={{ once: false }}
-            className="h-[3px] bg-teal-400 mt-1 rounded-full"
+            className="h-[3px] bg-gradient-to-r from-teal-400 to-stone-400 mt-1"
           />
         </motion.div>
       </div>

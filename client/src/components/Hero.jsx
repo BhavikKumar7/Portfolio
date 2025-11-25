@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Download, Mail } from 'lucide-react';
 import TextType from './TextType';
 import { Link as ScrollLink } from 'react-scroll';
 import Galaxy from './Galaxy';
 
 const Hero = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <section id="hero" className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black">
       <div className="relative w-full h-[700px]">
-        <Galaxy
-          mouseRepulsion={true}
-          mouseInteraction={true}
-          transparent={true}
-          glowIntensity={0.4}
-          saturation={0}
-          hueShift={140}
-          density={0.25}
-          twinkleIntensity={0.35}
-          starSpeed={0.25}
-          speed={0.8}
-          rotationSpeed={0.02}
-          className="absolute inset-0 w-full h-full"
-        />
+        {/* {mounted && (
+          <Galaxy
+            mouseRepulsion={true}
+            mouseInteraction={true}
+            transparent={true}
+            glowIntensity={0.4}
+            saturation={0}
+            hueShift={140}
+            density={0.25}
+            twinkleIntensity={0.35}
+            starSpeed={0.25}
+            speed={0.8}
+            rotationSpeed={0.02}
+            className="absolute inset-0 w-full h-full"
+          />
+        )} */}
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-center items-start px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32 space-y-4 z-10 pointer-events-none">

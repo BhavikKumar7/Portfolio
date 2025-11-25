@@ -194,3 +194,10 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   overflow-y: scroll;
 }
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
