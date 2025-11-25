@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from "framer-motion";
 import Swiper from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 import { FaReact, FaNodeJs, FaJava } from "react-icons/fa";
 import { SiExpress, SiMongodb, SiSocketdotio, SiSpringboot, SiCplusplus, SiMysql, SiArduino, SiTailwindcss } from "react-icons/si";
@@ -28,7 +29,7 @@ const Projects = () => {
 
   useEffect(() => {
     const swiper = new Swiper(swiperRef.current, {
-      modules: [Navigation],
+      modules: [Navigation, Pagination],
       speed: 600,
       loop: true,
       spaceBetween: 30,
@@ -48,21 +49,31 @@ const Projects = () => {
         nextEl: '.projects-next',
         prevEl: '.projects-prev',
       },
+      pagination: {
+        el: '.projects-pagination',
+        clickable: true,
+        type: 'progressbar',
+      },
+
+      on: {
+        init: function () {
+          if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+            document.querySelector('.projects-prev').style.display = 'none';
+            document.querySelector('.projects-next').style.display = 'none';
+          }
+        },
+      }
     });
 
     return () => swiper && swiper.destroy();
   }, []);
 
   return (
-    <section
-      id="projects"
-      className="min-h-screen mb-40 relative bg-gradient-to-b from-black via-black to-black pt-20 px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32 space-y-8"
-    >
+    <section id="projects" className="min-h-screen mb-40 relative bg-gradient-to-b from-black via-black to-black pt-20 px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32 space-y-8">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(45,212,191,0.08)_0%,_transparent_70%)] pointer-events-none"></div>
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-400/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-teal-400/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-      {/* Header */}
       <div className="text-center md:text-left w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -97,10 +108,8 @@ const Projects = () => {
                   boxShadow: "0 20px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.05)",
                 }}
               >
-                {/* Glow Effect (Teal only) */}
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-400/20 to-teal-300/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-                {/* Image */}
                 <div className="relative overflow-hidden rounded-xl mb-4">
                   <img
                     src={project.image}
@@ -110,18 +119,10 @@ const Projects = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
-                {/* Title */}
-                <h2 className="text-2xl font-bold text-teal-400 mb-1">
-                  {project.title}
-                </h2>
-
-                {/* Subtitle */}
+                <h2 className="text-2xl font-bold text-teal-400 mb-1">{project.title}</h2>
                 <p className="text-stone-400 text-sm mb-2 italic">{project.subTitle}</p>
-
-                {/* Description */}
                 <p className="text-stone-300 mt-2 leading-relaxed">{project.description}</p>
 
-                {/* Tech Stack */}
                 {project.techStack && (
                   <div className="flex flex-wrap gap-3 mt-4">
                     {project.techStack.map((tech, idx) => (
@@ -137,7 +138,6 @@ const Projects = () => {
                   </div>
                 )}
 
-                {/* Buttons */}
                 <div className="mt-5 flex gap-4 flex-wrap">
                   <motion.a
                     href={project.github}
@@ -181,6 +181,9 @@ const Projects = () => {
         >
           ❯
         </motion.button>
+
+        <div className="projects-pagination"></div>
+
       </div>
     </section>
   );

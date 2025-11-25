@@ -52,7 +52,6 @@ const About = () => {
           ))}
         </div>
 
-        {/* === Image Section (Smaller Proportion) === */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -66,8 +65,6 @@ const About = () => {
               alt="Profile"
               className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-all duration-300"
             />
-
-            {/* Optional teal glow overlay */}
             <div className="absolute inset-0 bg-teal-400/5 mix-blend-overlay"></div>
           </div>
 

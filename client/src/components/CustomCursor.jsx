@@ -1,12 +1,10 @@
 import React, { useEffect, useRef } from "react";
 
 const CustomCursor = () => {
-  // Detect touch screen devices
   const isTouchDevice = () =>
     typeof window !== "undefined" &&
     ("ontouchstart" in window || navigator.maxTouchPoints > 0);
 
-  // Disable custom cursor completely on touch devices
   if (isTouchDevice()) return null;
 
   const innerCursor = useRef(null);

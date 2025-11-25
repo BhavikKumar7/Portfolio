@@ -183,15 +183,15 @@
 }
 
 ::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
+  display: none;
 }
 
 html {
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
 }
 
 body {
-  -ms-overflow-style: none; /* IE and Edge */
+  -ms-overflow-style: none; 
   overflow-y: scroll;
 }
 
@@ -200,4 +200,24 @@ body {
   justify-content: center;
   align-items: center;
   height: 300px;
+}
+
+.projects-pagination.swiper-pagination-progressbar {
+  position: relative !important;
+  width: 70% !important;
+  height: 6px !important;
+  margin: 175px auto 0 !important;
+  display: block !important;
+  background: rgba(255,255,255,0.15) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  z-index: 1000 !important;
+}
+
+.projects-pagination .swiper-pagination-progressbar-fill {
+  background: #14b8a6 !important;
+  box-shadow: 0 0 12px rgba(20,184,166,0.7);
+  height: 100% !important;
+  border-radius: 10px !important;
+  transition: all 0.3s ease !important;
 }
