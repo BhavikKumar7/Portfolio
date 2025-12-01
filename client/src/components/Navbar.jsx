@@ -1,6 +1,7 @@
 import { Download, MenuIcon, X } from "lucide-react";
 import { useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -71,7 +72,12 @@ const Navbar = () => {
           </button>
 
           {menuOpen && (
-            <div className="absolute top-14 right-0 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl shadow-lg flex flex-col items-start space-y-4 p-6 animate-slide-down text-stone-100">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: -5 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.25 }}
+              className="absolute top-14 right-0 min-w-[200px] bg-[rgba(0,0,0,0.75)] backdrop-blur-xl border border-[rgba(20,184,166,0.3)] rounded-2xl shadow-[0_0_35px_rgba(20,184,166,0.4)] flex flex-col items-start space-y-4 p-6"
+            >
               {navItems.map((item) => (
                 <ScrollLink
                   key={item.to}
@@ -81,13 +87,13 @@ const Navbar = () => {
                   offset={-80}
                   spy={true}
                   onClick={() => setMenuOpen(false)}
-                  className="cursor-pointer hover:text-stone-200 transition-colors duration-200"
+                  className="w-full px-2 py-2 rounded-lg cursor-pointer text-stone-200 hover:text-teal-400 hover:bg-[rgba(20,184,166,0.1)] transition-all duration-200"
                 >
                   {item.name}
                 </ScrollLink>
               ))}
               <ResumeButton />
-            </div>
+            </motion.div>
           )}
         </div>
       </div>

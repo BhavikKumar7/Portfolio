@@ -1,9 +1,11 @@
-import React from 'react';
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { FaReact, FaNodeJs, FaGitAlt, FaJira } from "react-icons/fa";
 import { SiMongodb, SiExpress, SiJsonwebtokens, SiGithubactions } from "react-icons/si";
+import MagneticProfile from "./MagneticProfile";
 
 const Experience = () => {
+
   const experience = {
     title: "Software Development Intern (Remote SDE)",
     company: "Sangam ERP Solutions Pvt. Ltd.",
@@ -27,85 +29,88 @@ const Experience = () => {
     ],
   };
 
+
   return (
     <section id="experience" className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32">
       <div className="text-center md:text-left w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "anticipate" }}
-          viewport={{ once: false }}
+          transition={{ duration: 1 }}
           className="inline-block mb-8"
         >
           <h2 className="text-4xl sm:text-5xl font-extrabold text-stone-100 tracking-tight">
             Experience
           </h2>
           <motion.div
-            initial={{ scaleX: 0, transformOrigin: "left" }}
+            initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            transition={{ duration: 1, ease: "anticipate", delay: 0.3 }}
-            viewport={{ once: false }}
+            transition={{ duration: 1, delay: 0.3 }}
             className="h-[3px] bg-gradient-to-r from-teal-400 to-stone-400 mt-1"
           />
         </motion.div>
       </div>
-      <div className="flex flex-col md:flex-row items-start md:items-center space-y-8 md:space-y-0 md:space-x-12">
+
+      <div className="flex flex-col md:flex-row items-start md:items-center space-y-10 md:space-y-0 md:space-x-12">
         <div className="w-full md:w-2/3 space-y-5">
           <motion.h3
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="text-2xl font-semibold text-teal-400"
           >
             {experience.title}
           </motion.h3>
-
           <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-            viewport={{ once: false }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
             className="text-stone-400 text-lg"
           >
             {experience.company} <span className="text-stone-500">| {experience.duration}</span>
           </motion.p>
-
-          <div className="space-y-3 mt-4">
+          <div className="space-y-4 mt-4">
             {experience.points.map((point, index) => (
               <motion.p
                 key={index}
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-                viewport={{ once: false }}
-                className="text-stone-200 text-lg leading-relaxed tracking-wide"
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{
+                  scale: 1.05,
+                  color: "#14b8a6",
+                  x: 6,
+                  textShadow: "0 0 12px rgba(20,184,166,0.8)"
+                }}
+                className="relative text-stone-300 text-lg leading-relaxed cursor-pointer group"
               >
                 {point}
               </motion.p>
             ))}
           </div>
-
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-            viewport={{ once: false }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             className="mt-8"
           >
-            <h4 className="text-teal-400 text-xl font-semibold mb-3 flex items-center gap-2">
+            <h4 className="text-teal-400 text-xl font-semibold mb-3">
               🧩 Tech Toolbox:
             </h4>
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap gap-4">
               {experience.tech.map((tech, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.85 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.05 }}
-                  viewport={{ once: false }}
-                  className="flex items-center gap-2 px-3 py-2 bg-gray-900/50 border border-gray-700 rounded-lg hover:bg-gray-800/80 transition duration-300"
-                >
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: index * 0.05, ease: "easeOut" }}
+                  whileHover={{ scale: 1.12, boxShadow: "0 0 22px rgba(20,184,166,0.6)" }}
+
+                  className="px-3 py-2 bg-gray-900/50 rounded-lg border border-gray-700
+                    flex items-center gap-2 hover:bg-gray-800/90 cursor-pointer">
                   {tech.icon}
                   <span className="text-stone-300 text-sm font-medium">{tech.name}</span>
                 </motion.div>
@@ -114,17 +119,9 @@ const Experience = () => {
           </motion.div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: false }}
-          className="w-full md:w-1/3 md:flex hidden items-center justify-center"
-        >
-          <div className="w-56 h-56 md:w-64 md:h-64 rounded-full border-2 border-teal-400 shadow-[0_0_25px_#14b8a6] overflow-hidden flex items-center justify-center bg-gradient-to-b from-gray-900 to-black">
-            <span className="text-stone-500">Company Logo / Visual</span>
-          </div>
-        </motion.div>
+        <div className="hidden md:flex justify-center md:justify-end lg:justify-end w-full md:w-auto">
+          <MagneticProfile src="2.jpg" className="w-75 h-75 md:w-100 md:h-100" />
+        </div>
       </div>
     </section>
   );

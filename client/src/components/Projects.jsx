@@ -35,6 +35,7 @@ const Projects = () => {
       spaceBetween: 30,
       slidesPerView: 1,
       centeredSlides: true,
+      fadeEffect: { crossFade: true },
       breakpoints: {
         768: {
           slidesPerView: 2,
@@ -165,7 +166,6 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Navigation */}
         <motion.button
           className="projects-prev text-white text-3xl cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-black/70 backdrop-blur-md rounded-full p-3 hover:bg-teal-600/50 transition-all duration-300 shadow-lg"
           whileHover={{ scale: 1.1 }}

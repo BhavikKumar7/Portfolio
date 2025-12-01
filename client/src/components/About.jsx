@@ -1,7 +1,18 @@
-import React from 'react';
-import { motion } from "framer-motion";
+import { useEffect } from 'react';
+import { motion, useAnimate } from "framer-motion";
+import MagneticProfile from './MagneticProfile';
 
 const About = () => {
+
+  const textReveal = {
+    hidden: { opacity: 0, x: -20, scale: 0.98 },
+    visible: (i) => ({
+      opacity: 1,
+      x: 0,
+      scale: 1,
+      transition: { duration: 0.7, delay: i * 0.08, ease: "easeOut" }
+    })
+  };
 
   const aboutMePoints = [
     "👋 I’m Bhavik Kumar — a Computer Science and Engineering student passionate about building impactful digital solutions.",
@@ -35,40 +46,35 @@ const About = () => {
       </div>
 
       <div className="flex flex-col-reverse md:flex-row items-start md:items-center space-y-8 md:space-y-0 md:space-x-12">
-
-        {/* === Text Section (Takes More Space) === */}
         <div className="w-full md:w-2/3 space-y-4">
           {aboutMePoints.map((item, index) => (
             <motion.p
               key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: index * 0.1 }}
-              viewport={{ once: false }}
-              className="text-stone-200 text-lg leading-relaxed tracking-wide"
+              custom={index}
+              variants={textReveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              whileHover={{
+                x: 6,
+                scale: 1.04,
+                color: "#14b8a6",
+                textShadow: "0 0 15px rgba(20,184,166,0.8)",
+                transition: {
+                  duration: 0.25,
+                  type: "spring"
+                }
+              }}
+              transition={{ type: "spring", stiffness: 120, damping: 8 }}
+              className="relative text-stone-200 text-lg leading-relaxed tracking-wide cursor-pointer group"
             >
               {item}
             </motion.p>
           ))}
         </div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: false }}
-          className="w-full md:w-1/3 flex items-center justify-center"
-        >
-          <div className="relative w-60 h-60 md:w-100 md:h-100 rounded-full overflow-hidden flex items-center justify-center bg-gradient-to-b from-gray-950 to-black border border-none shadow-[0_0_35px_#14b8a6]/40 hover:shadow-[0_0_55px_#14b8a6]/70 transition-all duration-500">
-            <img
-              src="1.jpg"
-              alt="Profile"
-              className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-all duration-300"
-            />
-            <div className="absolute inset-0 bg-teal-400/5 mix-blend-overlay"></div>
-          </div>
-
-        </motion.div>
+        <div className="flex justify-center md:justify-end lg:justify-end w-full md:w-auto">
+          <MagneticProfile src="1.jpg" className="w-80 h-80 md:w-100 md:h-100" />
+        </div>
 
       </div>
     </section>
