@@ -73,7 +73,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pointer-events-auto"
         >
           <motion.a
             href="/Bhavik_Kumar_Resume.pdf"
