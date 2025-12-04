@@ -39,7 +39,7 @@ const Experience = () => {
           transition={{ duration: 1 }}
           className="inline-block mb-8"
         >
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-stone-100 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-stone-100 tracking-tight">
             Experience
           </h2>
           <motion.div

@@ -28,18 +28,16 @@ const About = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "anticipate" }}
-          viewport={{ once: false }}
+          transition={{ duration: 1 }}
           className="inline-block mb-8"
         >
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-stone-100 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-stone-100 tracking-tight">
             About Me
           </h2>
           <motion.div
-            initial={{ scaleX: 0, transformOrigin: "left" }}
+            initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            transition={{ duration: 1, ease: "anticipate", delay: 0.3 }}
-            viewport={{ once: false }}
+            transition={{ duration: 1, delay: 0.3 }}
             className="h-[3px] bg-gradient-to-r from-teal-400 to-stone-400 mt-1"
           />
         </motion.div>
@@ -73,9 +71,8 @@ const About = () => {
           ))}
         </div>
         <div className="flex justify-center md:justify-end lg:justify-end w-full md:w-auto">
-          <MagneticProfile src="1.jpg" className="w-80 h-80 md:w-100 md:h-100" />
+            <MagneticProfile src="1.jpg" className="w-80 h-80 md:w-100 md:h-100" />
         </div>
-
       </div>
     </section>
   );

@@ -34,13 +34,13 @@ const Hero = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="absolute inset-0 flex flex-col justify-center items-start gap-6 px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32 z-10 pointer-events-none"
+        className="absolute inset-0 flex flex-col justify-center items-center gap-6 px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32 z-10 pointer-events-none"
       >
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="text-teal-400 text-xl font-medium tracking-wide"
+          className="text-teal-400 text-2xl font-medium tracking-wide"
         >
           👋 Hi, I'm
         </motion.p>
@@ -56,7 +56,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2, delay: 0.7 }}
-          className="max-w-xl text-stone-300 text-xl sm:text-2xl leading-relaxed"
+          className="max-w-4xl text-stone-300 text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-center"
         >
           <TextType
             text={[

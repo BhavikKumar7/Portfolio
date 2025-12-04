@@ -48,17 +48,16 @@ const Contact = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "anticipate" }}
-          viewport={{ once: false }}
-          className="inline-block"
+          transition={{ duration: 1 }}
+          className="inline-block mb-8"
         >
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-stone-100">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-stone-100 tracking-tight">
             Contact Me
           </h2>
           <motion.div
-            initial={{ scaleX: 0, transformOrigin: "left" }}
+            initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
-            transition={{ duration: 1, ease: "anticipate", delay: 0.3 }}
+            transition={{ duration: 1, delay: 0.3 }}
             viewport={{ once: false }}
             className="h-[3px] bg-gradient-to-r from-teal-400 to-stone-400 mt-1"
           />
