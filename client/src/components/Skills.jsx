@@ -37,24 +37,11 @@ const Skills = () => {
           <h2 className="text-xl md:text-2xl font-semibold text-stone-200 tracking-wide">
             I'm grinding.
           </h2>
-        </motion.div>
-      </div>
-      <div
-        style={{ height: "600px" }}
-        className="flex items-center justify-center"
-      >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="px-8 py-6 rounded-xl border border-gray-700 bg-gray-900/60 backdrop-blur-md shadow-lg"
-        >
           <h2 className="text-xl md:text-2xl font-semibold text-stone-200 tracking-wide">
             Skill's are building.
           </h2>
         </motion.div>
       </div>
-
 
     </section>
   )
