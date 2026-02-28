@@ -23,7 +23,7 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black pt-20 px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32">
+    <section id="about" className="min-h-screen relative overflow-hidden bg-transparent pt-20 px-6 sm:px-10 md:px-16 lg:px-20 xl:px-32">
       <div className='text-center md:text-left w-full'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

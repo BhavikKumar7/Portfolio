@@ -1,35 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Download, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import TextType from "./TextType";
 import { Link as ScrollLink } from "react-scroll";
-import Galaxy from "./Galaxy";
 
 const Hero = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-
   return (
-    <section id="hero" className="min-h-screen relative overflow-hidden bg-gradient-to-b from-black via-gray-950 to-black">
-      <div className="relative w-full h-[700px]">
-        {mounted && (
-          <Galaxy
-            mouseRepulsion={true}
-            mouseInteraction={true}
-            transparent={true}
-            glowIntensity={0.5}
-            saturation={0}
-            hueShift={140}
-            density={0.35}
-            twinkleIntensity={0.5}
-            starSpeed={0.3}
-            speed={0.8}
-            rotationSpeed={0.03}
-            className="absolute inset-0 w-full h-full"
-          />
-        )}
-      </div>
+    <section id="hero" className="min-h-screen relative overflow-hidden bg-black/40">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}

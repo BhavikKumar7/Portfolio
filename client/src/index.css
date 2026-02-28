@@ -70,7 +70,8 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  /* --background: oklch(1 0 0); */
+  --background: transparent;
   --foreground: oklch(0.147 0.004 49.25);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.147 0.004 49.25);
@@ -104,7 +105,8 @@
 }
 
 .dark {
-  --background: oklch(0.147 0.004 49.25);
+  /* --background: oklch(0.147 0.004 49.25); */
+  --background: transparent;
   --foreground: oklch(0.985 0.001 106.423);
   --card: oklch(0.216 0.006 56.043);
   --card-foreground: oklch(0.985 0.001 106.423);
@@ -137,18 +139,28 @@
   --sidebar-ring: oklch(0.553 0.013 58.071);
 }
 
-@layer base {
+/* @layer base {
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
   }
+} */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply text-foreground;
+    background: transparent;
+  }
 }
 
 #hero {
-  background-color: #000;
-  color: #fff;
+  /* background-color: #000; */
+  /* color: #fff; */
+  background: transparent;
   position: relative;
   overflow: hidden;
 }
@@ -297,4 +309,14 @@ body {
 @keyframes move {
   from { transform: translate3d(0,0,0); }
   to   { transform: translate3d(-50%,0,0); }
+}
+
+html, body, #root {
+  height: 100%;
+  background: transparent;
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
 }

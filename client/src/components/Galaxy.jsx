@@ -298,9 +298,11 @@ export default function Galaxy({
     rafId = requestAnimationFrame(animate);
 
     const handleMove = (e) => {
-      const rect = ctn.getBoundingClientRect();
+      const rect = gl.canvas.getBoundingClientRect();
+
       const x = (e.clientX - rect.left) / rect.width;
       const y = 1 - (e.clientY - rect.top) / rect.height;
+
       targetMouse.current = { x, y };
       targetActive.current = 1.0;
     };
@@ -310,28 +312,24 @@ export default function Galaxy({
     };
 
     if (mouseInteraction) {
-      ctn.addEventListener('mousemove', handleMove, { passive: true });
-      ctn.addEventListener('mouseleave', handleLeave);
+      window.addEventListener('pointermove', handleMove, { passive: true });
+      window.addEventListener('pointerleave', handleLeave);
     }
+
 
     return () => {
       if (rafId) cancelAnimationFrame(rafId);
       try {
         ro.disconnect();
-      } catch (e) {}
-      if (mouseInteraction) {
-        ctn.removeEventListener('mousemove', handleMove);
-        ctn.removeEventListener('mouseleave', handleLeave);
-      }
-
+      } catch (e) { }
       try {
         gl.getExtension('WEBGL_lose_context')?.loseContext();
-      } catch (e) {}
+      } catch (e) { }
 
       if (gl.canvas && gl.canvas.parentNode === ctn) {
         try {
           ctn.removeChild(gl.canvas);
-        } catch (e) {}
+        } catch (e) { }
       }
     };
   }, []);
@@ -340,7 +338,7 @@ export default function Galaxy({
     <div
       ref={containerRef}
       className={`galaxy-container ${className}`}
-      style={{ width: '100%', height: '700px', position: 'relative', ...style }}
+      style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0, ...style }}
       {...rest}
     />
   );

@@ -17,21 +17,6 @@ export const projectsData = [
   },
   {
     id: 2,
-    title: "Cloud Share",
-    subTitle: "A secure and scalable file-sharing platform with encrypted transfers.",
-    description: "",
-    image: "",
-    github: "https://github.com/BhavikKumar7/cloudShare",
-    demo: "https://github.com/BhavikKumar7/cloudShare",
-    techStack: [
-      { name: "ReactJS", icon: "react" },
-      { name: "Spring Boot", icon: "spring" },
-      { name: "MySQL", icon: "mysql" },
-      { name: "REST APIs", icon: "api" },
-    ],
-  },
-  {
-    id: 3,
     title: "Dream Nest",
     subTitle: "A full-stack booking platform for hotels and homestays with host dashboards.",
     description: "",
@@ -44,6 +29,22 @@ export const projectsData = [
       { name: "ExpressJS", icon: "express" },
       { name: "MongoDB", icon: "mongodb" },
       { name: "SCSS", icon: "scss" },
+    ],
+  },
+  {
+    id: 3,
+    title: "Delhi Metro Rail App",
+    subTitle: "Shortest path and fare calculator using graph algorithms.",
+    description: "Java-based metro navigation system using Dijkstra’s algorithm and a Min-Heap.",
+    image: "",
+    github: "https://github.com/BhavikKumar7/Metro",
+    demo: "https://github.com/BhavikKumar7/Metro",
+    techStack: [
+      { name: "Java", icon: "java" },
+      { name: "Graph", icon: "graph" },
+      { name: "Dijkstra", icon: "algorithm" },
+      { name: "Heap", icon: "heap" },
+      { name: "BFS & DFS", icon: "bfs" }
     ],
   },
   {
@@ -64,6 +65,21 @@ export const projectsData = [
   },
   {
     id: 5,
+    title: "Cloud Share",
+    subTitle: "A secure and scalable file-sharing platform with encrypted transfers.",
+    description: "",
+    image: "",
+    github: "https://github.com/BhavikKumar7/cloudShare",
+    demo: "https://github.com/BhavikKumar7/cloudShare",
+    techStack: [
+      { name: "ReactJS", icon: "react" },
+      { name: "Spring Boot", icon: "spring" },
+      { name: "MySQL", icon: "mysql" },
+      { name: "REST APIs", icon: "api" },
+    ],
+  },
+  {
+    id: 6,
     title: "YourBuddy",
     subTitle: "An assistive gesture-to-speech converter for individuals with speech disabilities.",
     description: "",
