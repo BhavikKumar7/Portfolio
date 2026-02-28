@@ -66,10 +66,8 @@ const Contact = () => {
         </motion.div>
       </div>
 
-      {/* Two Column Layout */}
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-        {/* LEFT PANEL */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -90,7 +88,7 @@ const Contact = () => {
 
           <div className="space-y-12">
             <a
-              href="https://linkedin.com/in/YOUR_USERNAME"
+              href="https://www.linkedin.com/in/bhavik-kumar-rajput/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-all p-4 rounded-xl"
@@ -103,7 +101,7 @@ const Contact = () => {
             </a>
 
             <a
-              href="https://github.com/YOUR_USERNAME"
+              href="https://github.com/BhavikKumar7"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-all p-4 rounded-xl"
@@ -116,7 +114,7 @@ const Contact = () => {
             </a>
 
             <a
-              href="https://leetcode.com/YOUR_USERNAME"
+              href="https://leetcode.com/u/bhavikRajput7738/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 bg-gray-800 hover:bg-gray-700 transition-all p-4 rounded-xl"
